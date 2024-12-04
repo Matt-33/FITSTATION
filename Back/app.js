@@ -1,16 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./models");
-
+const authRoutes = require("./routes/authRoutes");
+const protectedRoutes = require("./routes/protectedRoutes")
 const app = express();
 
 app.use(cors());
 
 // Middleware pour parser les requêtes JSON
 app.use(express.json());
-
-// Importation des routes
-const cartRoutes = require("./routes/cartRoutes");
+app.use("/auth", authRoutes);
+app.use("/protected", protectedRoutes);
 
 // Test de connexion à la base de données et synchronisation des tables
 db.sequelize
@@ -18,7 +18,7 @@ db.sequelize
 	.then(() => {
 		console.log("Connexion à la base de données réussie");
 		// Synchronisation des tables avec modification si nécessaire
-		return db.sequelize.sync({ alter: true });
+		return db.sequelize.sync();
 	})
 	.then(() => {
 		console.log("Tables créées ou mises à jour avec succès");
@@ -31,6 +31,6 @@ db.sequelize
 	});
 
 // Configuration des routes
-app.use("/cart", cartRoutes);
+
 
 module.exports = app;

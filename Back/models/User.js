@@ -1,5 +1,3 @@
-const bcrypt = require('bcryptjs');
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "User",
@@ -40,17 +38,6 @@ module.exports = (sequelize, DataTypes) => {
       engine: "InnoDB",
     }
   );
-
-  // Hashage du mot de passe avant l'enregistrement
-  User.beforeCreate(async (user) => {
-    const hashedPassword = await bcrypt.hash(user.password, 10);
-    user.password = hashedPassword;
-  });
-
-  // Méthode pour valider le mot de passe
-  User.prototype.validatePassword = async function (password) {
-    return await bcrypt.compare(password, this.password);
-  };
 
   return User;
 };

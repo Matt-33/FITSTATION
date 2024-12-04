@@ -126,21 +126,21 @@ db.Payment.belongsTo(db.Order, {
 });
 
 // Synchronisation avec la base de données
-db.sequelize
-	.authenticate()
-	.then(() => {
-		console.log("Connexion à la base de données réussie");
-		// Utilisation de `alter: true` pour modifier les tables sans les supprimer
-		return db.sequelize.sync({ alter: true });
-	})
-	.then(() => {
-		console.log("Tables synchronisées avec succès.");
-	})
-	.catch((err) => {
-		console.error(
-			"Erreur lors de la connexion ou de la synchronisation des tables:",
-			err
-		);
-	});
+// db.sequelize
+// 	.authenticate()
+// 	.then(() => {
+// 		console.log("Connexion à la base de données réussie");
+// 		// Utilisation de `alter: true` pour modifier les tables sans les supprimer
+// 		return db.sequelize.sync({ alter: true });
+// 	})
+// 	.then(() => {
+// 		console.log("Tables synchronisées avec succès.");
+// 	})
+// 	.catch((err) => {
+// 		console.error(
+// 			"Erreur lors de la connexion ou de la synchronisation des tables:",
+// 			err
+// 		);
+// 	});
 
 module.exports = db;
