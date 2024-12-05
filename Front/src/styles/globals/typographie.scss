@@ -1,0 +1,27 @@
+@use '../colors' as colors;
+
+// Variables pour les poids de police
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Corps de la page
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: colors.$color-text-primary; // Texte principal clair sur fond sombre
+    background-color: colors.$color-background; // Fond sombre
+}
+
+// Titre principal
+h1, h2, h3 {
+    font-weight: $font-weight-semibold; // Utilise la variable pour une meilleure gestion
+    color: colors.$color-secondary; // Couleur dorée pour les titres
+}
+
+// Texte secondaire
+p, li {
+    color: colors.$color-text-secondary; // Gris moyen pour les textes secondaires
+}

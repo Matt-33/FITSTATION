@@ -1,0 +1,13 @@
+@use '../colors' as colors;
+@use '../globals/typographie' as typographie;
+
+.footer {
+    background-color: colors.$color-primary;
+    color: colors.$color-text-secondary;
+    padding: 20px;
+    text-align: center;
+  
+    .footer-text {
+      font-size: 14px;
+    }
+}
